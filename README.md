@@ -5,6 +5,7 @@
 - Lugar: UNIVERSIDAD NACIONAL DE INGENIERIA
 - Horario: Lunes de 08:00-13:00 Horas
 - Inicio: 26-AGO-2024
+- Aula: 
 - Portal web: https://www.fiis.uni.edu.pe/
 - Dirección: https://goo.gl/maps/SGR2RiuPjonfqSM87
 
@@ -19,13 +20,13 @@
 
 ## Delegado
 
-- Nombre: 
-- Correo: 
+- Nombre: Flores Carbajal, Bryan José
+- Correo: bryan.flores.c@uni.pe
 
 ## Subdelegado
 
-- Nombre: 
-- Correo: 
+- Nombre: Pahuacho Rivera, Jeff Luis
+- Correo: jeff.pahuacho.r@uni.pe
 
 # RECURSOS UTILES
 
