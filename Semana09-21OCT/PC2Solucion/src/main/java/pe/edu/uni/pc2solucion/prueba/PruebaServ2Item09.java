@@ -25,6 +25,7 @@ public class PruebaServ2Item09 {
 			//Proceso
 			LibreriaService service = new LibreriaService();
 			service.registrarVenta(bean);
+			System.out.println(bean);
 			System.out.println("Proceso OK");
 		} catch (Exception e) {
 			System.err.println(e.getMessage());

@@ -1,4 +1,4 @@
-package pe.edu.uni.pc2solucion.db;
+package pe.edu.uni.pc2solucion.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

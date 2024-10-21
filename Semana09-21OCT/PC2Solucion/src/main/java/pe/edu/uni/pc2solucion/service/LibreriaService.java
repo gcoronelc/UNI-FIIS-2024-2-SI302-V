@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import pe.edu.uni.pc2solucion.db.AccesoDB;
-import pe.edu.uni.pc2solucion.db.ResumenDTO;
+import pe.edu.uni.pc2solucion.dto.ResumenDTO;
 import pe.edu.uni.pc2solucion.dto.VentaDto;
 
 public class LibreriaService {
@@ -26,8 +26,8 @@ public class LibreriaService {
                """;
 		Connection cn = null;
 		try {
-			cn = AccesoDB.getConnection(); 
-			PreparedStatement pstm = cn.prepareStatement(sql); 
+			cn = AccesoDB.getConnection();
+			PreparedStatement pstm = cn.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
 				String idTipo = rs.getString("idtipo");
@@ -41,9 +41,9 @@ public class LibreriaService {
 			pstm.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e.getMessage());
-		} catch(Exception e){
+		} catch (Exception e) {
 			throw new RuntimeException("Error en el proceso, intentelo nuevamente.");
-		} finally{
+		} finally {
 			try {
 				cn.close();
 			} catch (Exception e) {
@@ -53,7 +53,6 @@ public class LibreriaService {
 	}
 
 	public void registrarVenta(VentaDto bean) {
-
 		// Variables
 		Connection cn = null;
 		String sql;
@@ -67,41 +66,9 @@ public class LibreriaService {
 			cn = AccesoDB.getConnection();
 			cn.setAutoCommit(false);
 			// Verificar idPublicacion
-			sql = "select count(1) cont from PUBLICACION where idpublicacion=?";
-			pstm = cn.prepareStatement(sql);
-			pstm.setString(1, bean.getIdPublicacion());
-			rs = pstm.executeQuery();
-			rs.next();
-			cont = rs.getInt("cont");
-			pstm.close();
-			rs.close();
-			if (cont != 1) {
-				throw new SQLException("La publicacion no existe.");
-			}
-			// Verificar id de usuario
-			sql = "select count(1) cont from USUARIO where idempleado=?";
-			pstm = cn.prepareStatement(sql);
-			pstm.setInt(1, bean.getIdEmpleado());
-			rs = pstm.executeQuery();
-			rs.next();
-			cont = rs.getInt("cont");
-			pstm.close();
-			rs.close();
-			if (cont != 1) {
-				throw new SQLException("El usuario no existe.");
-			}
-			// Verificar si se encuentra activo
-			sql = "select activo from USUARIO where idempleado=?";
-			pstm = cn.prepareStatement(sql);
-			pstm.setInt(1, bean.getIdEmpleado());
-			rs = pstm.executeQuery();
-			rs.next();
-			activo = rs.getInt("activo");
-			pstm.close();
-			rs.close();
-			if (activo != 1) {
-				throw new SQLException("El usuario no se encuentra activo");
-			}
+			validarPublicacion(cn, bean.getIdPublicacion());
+			// Validar empleado
+			validarEmpleado2(cn, bean.getIdEmpleado());
 			// Verificar la cantidad
 			if (bean.getCantidad() < 1) {
 				throw new SQLException("La cantidad debe ser positiva.");
@@ -189,6 +156,8 @@ public class LibreriaService {
 			}
 			// Confirmar Tx
 			cn.commit();
+			bean.setIdventa(idVenta);
+			bean.setTotalVenta(total);
 		} catch (SQLException e) {
 			try {
 				cn.rollback();
@@ -206,6 +175,61 @@ public class LibreriaService {
 				cn.close();
 			} catch (Exception e) {
 			}
+		}
+	}
+
+	private void validarPublicacion(Connection cn, String idPublicacion) throws SQLException {
+		String sql = "select count(1) cont from PUBLICACION where idpublicacion=?";
+		PreparedStatement pstm = cn.prepareStatement(sql);
+		pstm.setString(1, idPublicacion);
+		ResultSet rs = pstm.executeQuery();
+		rs.next();
+		int cont = rs.getInt("cont");
+		pstm.close();
+		rs.close();
+		if (cont != 1) {
+			throw new SQLException("La publicacion no existe.");
+		}
+	}
+
+	private void validarEmpleado(Connection cn, int idEmpleado) throws SQLException {
+		// Verificar id de usuario
+		String sql = "select count(1) cont from USUARIO where idempleado=?";
+		PreparedStatement pstm = cn.prepareStatement(sql);
+		pstm.setInt(1, idEmpleado);
+		ResultSet rs = pstm.executeQuery();
+		rs.next();
+		int cont = rs.getInt("cont");
+		pstm.close();
+		rs.close();
+		if (cont != 1) {
+			throw new SQLException("El usuario no existe.");
+		}
+		// Verificar si se encuentra activo
+		sql = "select activo from USUARIO where idempleado=?";
+		pstm = cn.prepareStatement(sql);
+		pstm.setInt(1, idEmpleado);
+		rs = pstm.executeQuery();
+		rs.next();
+		int activo = rs.getInt("activo");
+		pstm.close();
+		rs.close();
+		if (activo != 1) {
+			throw new SQLException("El usuario no se encuentra activo");
+		}
+	}
+	
+	private void validarEmpleado2(Connection cn, int idEmpleado) throws SQLException {
+		String sql = "select count(1) cont from USUARIO where idempleado=? and activo=1";
+		PreparedStatement pstm = cn.prepareStatement(sql);
+		pstm.setInt(1, idEmpleado);
+		ResultSet rs = pstm.executeQuery();
+		rs.next();
+		int cont = rs.getInt("cont");
+		pstm.close();
+		rs.close();
+		if (cont != 1) {
+			throw new SQLException("El usuario no existe o no se encuentra activo.");
 		}
 	}
 }

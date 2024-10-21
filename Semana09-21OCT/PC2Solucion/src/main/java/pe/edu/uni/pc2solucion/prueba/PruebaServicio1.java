@@ -1,7 +1,7 @@
 package pe.edu.uni.pc2solucion.prueba;
 
 import java.util.List;
-import pe.edu.uni.pc2solucion.db.ResumenDTO;
+import pe.edu.uni.pc2solucion.dto.ResumenDTO;
 import pe.edu.uni.pc2solucion.service.LibreriaService;
 
 public class PruebaServicio1 {

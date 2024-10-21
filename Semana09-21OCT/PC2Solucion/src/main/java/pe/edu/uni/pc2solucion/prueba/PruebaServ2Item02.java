@@ -21,7 +21,8 @@ public class PruebaServ2Item02 {
 			bean.setIdPublicacion("LIB00001");
 			bean.setCantidad(15);
 			bean.setCliente("Gustavo");
-			bean.setIdEmpleado(77);
+			//bean.setIdEmpleado(77);
+			bean.setIdEmpleado(3);
 			// Proceso
 			LibreriaService service = new LibreriaService();
 			service.registrarVenta(bean);

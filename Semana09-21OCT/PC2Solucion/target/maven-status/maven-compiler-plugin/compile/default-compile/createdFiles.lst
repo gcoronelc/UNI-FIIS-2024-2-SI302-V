@@ -1,7 +1,7 @@
 pe\edu\uni\pc2solucion\prueba\PruebaServ2Item01.class
+pe\edu\uni\pc2solucion\dto\ResumenDTO.class
 pe\edu\uni\pc2solucion\db\AccesoDB.class
 pe\edu\uni\pc2solucion\service\LibreriaService.class
-pe\edu\uni\pc2solucion\db\ResumenDTO.class
 pe\edu\uni\pc2solucion\dto\VentaDto.class
 pe\edu\uni\pc2solucion\prueba\PruebaConexion.class
 pe\edu\uni\pc2solucion\prueba\PruebaServ2Item02.class
