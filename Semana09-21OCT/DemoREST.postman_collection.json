@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "acc4c673-b87a-46e8-b137-ba1e54db3820",
+		"name": "DemoREST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24743107",
+		"_collection_link": "https://restless-crater-974849.postman.co/workspace/UNI-FIIS-2024-2-POO-V~6a82c520-9f74-45d2-87ce-7e5749db9440/collection/24743107-acc4c673-b87a-46e8-b137-ba1e54db3820?action=share&source=collection_link&creator=24743107"
+	},
+	"item": [
+		{
+			"name": "GETs",
+			"item": [
+				{
+					"name": "Saludo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/saludo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"saludo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Saludo V2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/saludo/v2?nombre=Gustavo Coronel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"saludo",
+								"v2"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Gustavo Coronel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "factorial",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/math/factorial?n=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"math",
+								"factorial"
+							],
+							"query": [
+								{
+									"key": "n",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FactorialError",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/math/factorial?n=-5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"math",
+								"factorial"
+							],
+							"query": [
+								{
+									"key": "n",
+									"value": "-5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POSTs",
+			"item": [
+				{
+					"name": "Potencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/math/potencia?base=3&expo=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"math",
+								"potencia"
+							],
+							"query": [
+								{
+									"key": "base",
+									"value": "3"
+								},
+								{
+									"key": "expo",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
