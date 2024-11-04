@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "60401fe7-3e6e-4696-818f-9a407401fd79",
+		"name": "EurekaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24743107",
+		"_collection_link": "https://restless-crater-974849.postman.co/workspace/UNI-FIIS-2024-2-POO-V~6a82c520-9f74-45d2-87ce-7e5749db9440/collection/24743107-60401fe7-3e6e-4696-818f-9a407401fd79?action=share&source=collection_link&creator=24743107"
+	},
+	"item": [
+		{
+			"name": "GETs",
+			"item": [
+				{
+					"name": "clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/listado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"listado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/00002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"00002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientes/00033",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"00033"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POSTs",
+			"item": [
+				{
+					"name": "NuevoCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paterno\": \"ROMAN\",\r\n    \"materno\": \"CALDERON\",\r\n    \"nombre\": \"FARID ANTHONY\",\r\n    \"dni\": \"1245786370328402384092384023840238402384023840938240238402384023840\",\r\n    \"ciudad\": \"LIMA\",\r\n    \"direccion\": \"LOS OLIVOS\",\r\n    \"telefono\": \"986123545\",\r\n    \"email\": \"froman@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUTs",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paterno\": \"ROMAN\",\r\n    \"materno\": \"CALDERON\",\r\n    \"nombre\": \"FARID ANTHONY\",\r\n    \"dni\": \"87126534\",\r\n    \"ciudad\": \"LIMA\",\r\n    \"direccion\": \"LOS OLIVOS\",\r\n    \"telefono\": \"986123545\",\r\n    \"email\": \"froman@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clientes/00001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientes",
+								"00001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PATCHs",
+			"item": []
+		},
+		{
+			"name": "DELETEs",
+			"item": []
+		}
+	]
+}
