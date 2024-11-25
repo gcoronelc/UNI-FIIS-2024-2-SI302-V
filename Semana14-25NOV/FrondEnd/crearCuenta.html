@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            padding-top: 50px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Crear Cuenta</h2>
+                    <form id="cuentaForm">
+                        <div class="form-group">
+                            <label for="cliente">Cliente</label>
+                            <input type="text" class="form-control" id="cliente" name="cliente" required>
+                            <small class="error-message" id="clienteError">Por favor, ingrese un cliente válido</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="moneda">Moneda</label>
+                            <select class="form-control" id="moneda" name="moneda" required>
+                                <option value="">Seleccione una moneda</option>
+                                <option value="01">Soles (PEN)</option>
+                                <option value="02">Dólares (USD)</option>
+                            </select>
+                            <small class="error-message" id="monedaError">Por favor, seleccione una moneda</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="importe">Importe</label>
+                            <input type="number" class="form-control" id="importe" name="importe" step="0.01" min="0" required>
+                            <small class="error-message" id="importeError">Por favor, ingrese un importe válido</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clave">Clave</label>
+                            <input type="password" class="form-control" id="clave" name="clave" required>
+                            <small class="error-message" id="claveError">Por favor, ingrese una clave válida</small>
+                        </div>
+
+                        <div id="mensajeRespuesta" class="alert" style="display: none;"></div>
+
+                        <button type="button" id="btnProcesar" class="btn btn-primary btn-block">
+                            Procesar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery primero, luego Popper.js, después Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="js/crearCuenta.js"></script>
+</body>
+</html>
